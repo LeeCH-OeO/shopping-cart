@@ -79,8 +79,8 @@ const App = ()=>{
       <IconButton onClick= {() => setCartOpen(true)} color="inherit">
         <Badge badgeContent={getTotalItems(cartItems)} color='error'>
           <ShoppingCartSharpIcon />
-        </Badge><Typography variant="subtitle1" >&emsp;購物車</Typography>
-      </IconButton>
+        </Badge>
+      </IconButton><Typography variant="subtitle1" >購物網站</Typography>
       
       </Toolbar>        
       </AppBar>
