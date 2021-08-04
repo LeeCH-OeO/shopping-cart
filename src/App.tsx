@@ -6,11 +6,12 @@ import Cart from './cart/Cart';
 import Drawer from '@material-ui/core/Drawer';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Grid from '@material-ui/core/Grid';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import ShoppingCartSharpIcon from '@material-ui/icons/ShoppingCartSharp';
 import Badge from '@material-ui/core/Badge';
-//style
-import { Wrapper, StyledButton } from './App.styles';
-// import { type } from 'os';
+import { AppBar, Typography } from '@material-ui/core';
+import  IconButton  from "@material-ui/core/IconButton";
+import { Toolbar } from '@material-ui/core';
+
 
 
 //types
@@ -28,6 +29,7 @@ const getProducts = async (): Promise<CartItemType[]> =>
 
 
 const App = ()=>{
+
   const [cartOpen, setCartOpen] = useState(false)
   const [cartItems, setCartItems] = useState([] as CartItemType[])
   const {data,isLoading,error} = useQuery<CartItemType[]>('product', getProducts)
@@ -68,24 +70,36 @@ const App = ()=>{
 
 
   return (
-    <Wrapper>
-      <Drawer anchor= 'right' open={cartOpen} onClose= {()=> setCartOpen(false)}>
+    <div>
+      <AppBar position='sticky'>
+        <Toolbar>
+          <Drawer anchor= 'left' open={cartOpen} onClose= {()=> setCartOpen(false)}>
         <Cart cartItems={cartItems} addToCart={handleAddToCart} removeFromCart={handleRemoveFromCart}/>
       </Drawer>
-      <StyledButton onClick= {() => setCartOpen(true)}>
+      <IconButton onClick= {() => setCartOpen(true)} color="inherit">
         <Badge badgeContent={getTotalItems(cartItems)} color='error'>
-          <AddShoppingCartIcon />
-        </Badge>
-      </StyledButton>
+          <ShoppingCartSharpIcon />
+        </Badge><Typography variant="subtitle1" >&emsp;購物車</Typography>
+      </IconButton>
       
-      <Grid container spacing={3}>
+      </Toolbar>        
+      </AppBar>
+      <p></p>      
+      <Grid container spacing={2}>
         { data?.map(item => (
-          <Grid item key={item.id} xs={12} sm={4}>
+          <Grid item key={item.id} xs={12} sm={2}>
             <Item item = {item} handleAddToCart= {handleAddToCart}/>
           </Grid>
         )) }
       </Grid>
-    </Wrapper>
+      <p></p>
+      <footer >
+          <a href="https://github.com/LeeCH-OeO/shopping-cart" target="_blank" rel="noreferrer">
+              <Typography align="center" color="textSecondary" gutterBottom >
+          ©LeeCH-OeO 
+          </Typography></a>         
+          </footer>
+    </div>
   );
 }
 

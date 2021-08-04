@@ -12,7 +12,7 @@ button {
   border-radius: 0 0 20px 20px;
 }
 img {
-  max-height: 500px;
+  max-height: 200px;
   object-fit: cover;
   border-radius: 20px 20px 0 0;
 }
