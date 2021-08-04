@@ -10,8 +10,8 @@ type Props = {
     removeFromCart: (id:number) => void;
 }
 const buy=()=>{
-    setTimeout(()=>{window.open('https://youtu.be/DuxARwgmw-o')},1500)
-    setTimeout(()=>{window.location.reload()},1600)
+    setTimeout(()=>{window.open('https://youtu.be/DuxARwgmw-o',"_self") },1500)
+    
 
 }
 const Cart: React.FC<Props> = ({ cartItems, addToCart, removeFromCart }) =>{
