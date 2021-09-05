@@ -10,7 +10,7 @@ type Props = {
     removeFromCart: (id:number) => void;
 }
 const buy=()=>{
-    setTimeout(()=>{window.open('https://youtu.be/DuxARwgmw-o',"_self") },1500)
+    setTimeout(()=>{window.open('https://youtu.be/cvh0nX08nRw',"_self") },1500)
     
 
 }

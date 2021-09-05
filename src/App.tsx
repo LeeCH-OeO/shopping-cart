@@ -1,6 +1,5 @@
 import{ useState } from 'react';
 import{ useQuery } from 'react-query';
-
 import Item from './Item/Item';
 import Cart from './cart/Cart';
 import Drawer from '@material-ui/core/Drawer';
